@@ -1,3 +1,4 @@
 *.pyc
+*.yaml
 vue/dist
 vue/node_modules
