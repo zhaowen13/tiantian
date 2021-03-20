@@ -18,13 +18,23 @@ from django.contrib import admin
 from django.views.generic import TemplateView
 from django.views.static import serve
 from django.conf import settings
-from my_web.views import *
+from my_web import views
+
+
+
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/getoptionalfund$', getoptionalfund),
-    url(r'^api/getmarket$', getmarket),
-    url(r'^api/addfund$', addfund),
+    url(r'^api/getoptionalfund$', views.getoptionalfund),
+    url(r'^api/getmarket$', views.getmarket),
+    url(r'^api/addfund$', views.addfund),
+    url(r'^api/holdcalculation$', views.holdcalculation),
+    url(r'^api/tradingrules$', views.addtradingrules),
+    url(r'^api/buyin$', views.buyin),
+    url(r'^api/gettradingrules$', views.gettradingrules),
+    # url(r'^api/test$', views.test),
+    url(r'^api/test_websocket$',views.test_websocket),
     url(r'^', TemplateView.as_view(template_name="index.html")),
     url(r'^static/(?P<path>.*)$',serve,{'document_root': settings.STATIC_ROOT}),
    

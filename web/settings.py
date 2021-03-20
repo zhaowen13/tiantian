@@ -26,7 +26,7 @@ SECRET_KEY = 'w+$kx1=!&soyq&&47%$#cu=e(a*((6nr$49ov4f_gmzac!m^+&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django_apscheduler",
     'my_web',
     
 ]
@@ -46,8 +47,8 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
  'django.middleware.security.SecurityMiddleware',
  'django.contrib.sessions.middleware.SessionMiddleware',
- 'corsheaders.middleware.CorsMiddleware',
  'django.middleware.common.CommonMiddleware',
+ 'corsheaders.middleware.CorsMiddleware',
  'django.middleware.csrf.CsrfViewMiddleware',
  'django.contrib.auth.middleware.AuthenticationMiddleware',
  'django.contrib.messages.middleware.MessageMiddleware',
@@ -99,11 +100,11 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'web',
-        'USER': 'root',
-        'PASSWORD': 'fPS5GGAL%^Yd%6@a',
-        'HOST': '127.0.0.1',
-        'PORT': '3306'
+        'NAME': NAME,
+        'USER': USER,
+        'PASSWORD': PASSWORD,
+        'HOST': HOST,
+        'PORT': PORT
     }
 }
 
@@ -146,11 +147,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'vue/dist/static')
+# WEBSOCKET_FACTORY_CLASS="dwebsocket.backends.uwsgi.factory.uWsgiWebSocketFactory"
 
 STATICFILES_DIRS = [
     ("css", os.path.join(STATIC_ROOT, 'css')),
     ("img", os.path.join(STATIC_ROOT, 'img')),
     ("js", os.path.join(STATIC_ROOT, 'js')),
-    ("fonts", os.path.join(STATIC_ROOT, 'fonts')),
-    ("imgs", os.path.join(STATIC_ROOT, '../static/imgs')),
+    ("fonts", os.path.join(STATIC_ROOT, 'fonts'))
 ]
+#     ("imgs", os.path.join(STATIC_ROOT, '../static/imgs')),

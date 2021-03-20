@@ -6,14 +6,12 @@
             mode="horizontal"
             :default-active="$router.path"
             router
-            @open="handleOpen"
-            @close="handleClose"
-            @select="handleSelect"
             background-color="#2F373C"
             text-color="#fff"
             active-text-color="#ffd04b"
           >
-            <el-menu-item index="/" target="right">首页</el-menu-item>
+            <el-menu-item index="/" target="stock">股票</el-menu-item>
+            <el-menu-item index="/fund" target="fund">基金</el-menu-item>
           </el-menu>
          
         </el-header>
@@ -22,7 +20,6 @@
 </template>
 <script>
 export default {
-  name: "app"
 };
 </script>
 
@@ -53,18 +50,5 @@ export default {
   line-height: 200px;
 }
 </style>
-
-<script>
-export default {
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
-    }
-  }
-};
-</script>
 
 
